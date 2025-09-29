@@ -1,7 +1,8 @@
 import asyncio
-import websockets
-import json
 import base64
+import json
+
+import websockets
 
 
 async def test_ncalayer_mock():

@@ -1,14 +1,15 @@
 import asyncio
-import websockets
+import base64
 import json
 import ssl
-import base64
-import uuid
-from datetime import datetime
-from aiohttp import web
 import threading
 import time
-from typing import Dict, Any, Optional
+import uuid
+from datetime import datetime
+from typing import Any, Dict, Optional
+
+import websockets
+from aiohttp import web
 
 
 class NCALayerMock:
