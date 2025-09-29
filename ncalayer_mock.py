@@ -258,6 +258,7 @@ class KAZTOKENHTTPMock:
         """Обработка HTTP запросов"""
         path = request.path
         method = request.method
+        module = request.get("module")
         
         # CORS headers
         headers = {
@@ -265,6 +266,17 @@ class KAZTOKENHTTPMock:
             "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
             "Access-Control-Allow-Headers": "Content-Type"
         }
+
+
+        if module == "kz.sapa.eproc.osgi.EprocModule" and method == "version":
+            return {
+                "result": {
+                    "version": "1.4",
+                    "name": "SAPA Eproc Module",
+                    "compatibility": "NCALayer 3.0"
+                }
+            }
+
         
         if method == "OPTIONS":
             return web.Response(status=200, headers=headers)
